@@ -54,16 +54,15 @@ var FlappyBox;
         }
         checkCollision() {
             //Hit Wall check
-            /*
-            for (let walls of level.getChildren()) {
-              for (let wallSegments of walls.getChildren()) {
-                let rect: ƒ.Rectangle = (<WallSegment>wallSegments).getRectWorld();
-                let hit: boolean = rect.isInside(this.cmpTransform.local.translation.toVector2());
-                if (hit) {
-                  console.log("Hit");
+            for (let walls of FlappyBox.level.getChildren()) {
+                for (let wallSegments of walls.getChildren()) {
+                    let rect = wallSegments.getRectWorld();
+                    let hit = rect.isInside(this.cmpTransform.local.translation.toVector2());
+                    if (hit) {
+                        console.log("Hit");
+                    }
                 }
-              }
-            }*/
+            }
             //Hit Ground check
             if (this.birdParent.mtxLocal.translation.y < -1.4 && this.dead == false) {
                 this.dead = true;

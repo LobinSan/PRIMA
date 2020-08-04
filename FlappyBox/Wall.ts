@@ -43,8 +43,6 @@ namespace FlappyBox {
     }
 
     private update = (_event: ƒ.Eventƒ): void => {
-      //this.checkPlayerCollision();
-      
       let timeFrame: number = ƒ.Loop.timeFrameGame / 1000;
       this.speedTimeFrame.x = Wall.speed.x * timeFrame;
       let distance: ƒ.Vector3 = ƒ.Vector3.SCALE(this.speedTimeFrame, timeFrame);
@@ -52,14 +50,5 @@ namespace FlappyBox {
       if (!this.stopMovement)
         this.cmpTransform.local.translate(distance);
     }
-
-    /*
-    private checkPlayerCollision(): void {
-      for (let wallSegments of this.getChildren()) {
-        if (player.bird.mtxLocal.translation.isInsideSphere(wallSegments.mtxLocal.translation, 1)) {
-          console.log("Hit");
-        }
-      }
-    }*/
   }
 }

@@ -8,7 +8,6 @@ var FlappyBox;
             this.speedTimeFrame = ƒ.Vector3.ZERO();
             this.stopMovement = false;
             this.update = (_event) => {
-                //this.checkPlayerCollision();
                 let timeFrame = ƒ.Loop.timeFrameGame / 1000;
                 this.speedTimeFrame.x = Wall.speed.x * timeFrame;
                 let distance = ƒ.Vector3.SCALE(this.speedTimeFrame, timeFrame);
