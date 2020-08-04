@@ -106,10 +106,19 @@ var FlappyBox;
         document.getElementById("PlayAgain").addEventListener("click", restartGame);
     }
     function updateSoundVolume() {
+        let soundButton = document.getElementById("SoundButton");
         let volumeSlider = document.getElementById("volumeSlider");
         let volume = parseInt(volumeSlider.value) / 100;
         gameOverAudio.volume = volume;
         jumpAudio.volume = volume;
+        if (parseInt(volumeSlider.value) == 0) {
+            soundButton.src = "Images/VolumeOff.png";
+            musicOn = false;
+        }
+        else {
+            soundButton.src = "Images/VolumeOn.png";
+            musicOn = true;
+        }
     }
     function restartGame() {
         location.reload();

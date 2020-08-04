@@ -132,11 +132,21 @@ namespace FlappyBox {
   }
 
   function updateSoundVolume() {
+    let soundButton = document.getElementById("SoundButton") as HTMLImageElement;
     let volumeSlider = (<HTMLInputElement>document.getElementById("volumeSlider"));
     let volume: number = parseInt(volumeSlider.value) / 100;
 
     gameOverAudio.volume = volume;
     jumpAudio.volume = volume;
+
+    if (parseInt(volumeSlider.value) == 0) {
+      soundButton.src = "Images/VolumeOff.png";
+      musicOn = false;
+    }
+    else {
+      soundButton.src = "Images/VolumeOn.png";
+      musicOn = true;
+    }
   }
 
   function restartGame(): void {

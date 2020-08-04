@@ -73,6 +73,7 @@ namespace FlappyBox {
 
     private checkCollision(): void {
       //Hit Wall check
+      /*
       for (let walls of level.getChildren()) {
         for (let wallSegments of walls.getChildren()) {
           let rect: ƒ.Rectangle = (<WallSegment>wallSegments).getRectWorld();
@@ -81,7 +82,7 @@ namespace FlappyBox {
             console.log("Hit");
           }
         }
-      }
+      }*/
       //Hit Ground check
       if (this.birdParent.mtxLocal.translation.y < -1.4 && this.dead == false) {
         this.dead = true;
