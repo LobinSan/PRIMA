@@ -8,8 +8,8 @@ namespace FlappyBox {
   export let player: Player;
   let game: ƒ.Node;
   let floor: Floor;
-  let score: number = -2;
-  let musicOn: boolean = true;
+  //let score: number = -2;
+  let musicOn: boolean = false;
   let gameOver: boolean = false;
   let jumpAudio: HTMLAudioElement;
   let gameOverAudio: HTMLAudioElement;
@@ -130,10 +130,12 @@ namespace FlappyBox {
     
 
     //Wall counting --> Score
+    /*
     score++;
     let scoreElem: HTMLElement = document.querySelector("h1#Score");
     if (score >= 0)
       scoreElem.textContent = score.toString();
+    */
   }
 
   function startCountDown(): void {

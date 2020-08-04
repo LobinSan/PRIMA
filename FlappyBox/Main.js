@@ -6,8 +6,8 @@ var FlappyBox;
     window.addEventListener("load", init);
     let game;
     let floor;
-    let score = -2;
-    let musicOn = true;
+    //let score: number = -2;
+    let musicOn = false;
     let gameOver = false;
     let jumpAudio;
     let gameOverAudio;
@@ -105,10 +105,12 @@ var FlappyBox;
         let wall = new FlappyBox.Wall();
         FlappyBox.level.addChild(wall);
         //Wall counting --> Score
+        /*
         score++;
-        let scoreElem = document.querySelector("h1#Score");
+        let scoreElem: HTMLElement = document.querySelector("h1#Score");
         if (score >= 0)
-            scoreElem.textContent = score.toString();
+          scoreElem.textContent = score.toString();
+        */
     }
     function startCountDown() {
         let countDown = new FlappyBox.ƒ.Time();
