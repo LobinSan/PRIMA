@@ -18,19 +18,24 @@ var FlappyBox;
                 if (!this.dead)
                     this.birdParent.cmpTransform.local.translate(distance);
                 if (!this.dead) {
-                    if (this.speed.y > 0 && this.bird.cmpTransform.local.rotation.z < 30) {
-                        this.bird.cmpTransform.local.rotateZ(3);
+                    if (this.speed.y > 0 && this.bird.cmpTransform.local.rotation.z < this.jumpAngle) {
+                        this.bird.cmpTransform.local.rotateZ(this.jumpRotSpeed);
                     }
-                    else if (this.bird.cmpTransform.local.rotation.z > -30) {
-                        this.bird.cmpTransform.local.rotateZ(-2);
+                    else if (this.bird.cmpTransform.local.rotation.z > -this.jumpAngle) {
+                        this.bird.cmpTransform.local.rotateZ(-this.fallRotSpeed);
                     }
                 }
                 this.checkCollision();
             };
-            ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, this.update);
+            //Variables from external data
+            this.jumpSpeed = FlappyBox.data.playerJumpSpeed;
+            this.jumpAngle = FlappyBox.data.playerJumpAngle;
+            this.jumpRotSpeed = FlappyBox.data.playerJumpRotSpeed;
+            this.fallRotSpeed = FlappyBox.data.playerFallRotSpeed;
             this.createBird();
             this.appendChild(this.birdParent);
             this.addComponent(new ƒ.ComponentTransform);
+            ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, this.update);
         }
         createBird() {
             let mesh = new ƒ.MeshQuad();
@@ -45,16 +50,10 @@ var FlappyBox;
             this.birdParent.cmpTransform.local.translateX(-0.5);
         }
         jump() {
-            this.speed.y = 3.2;
+            this.speed.y = this.jumpSpeed;
         }
-        /*
-        private checkCollision(): void {
-          //Hit Ground check
-          if (this.birdParent.mtxLocal.translation.y < -1.4 && this.dead == false) {
-            this.dead = true;
-          }
-        }*/
         checkCollision() {
+            //Hit Wall check
             for (let walls of FlappyBox.level.getChildren()) {
                 for (let wallSegments of walls.getChildren()) {
                     let rect = wallSegments.getRectWorld();
@@ -63,6 +62,10 @@ var FlappyBox;
                         console.log("Hit");
                     }
                 }
+            }
+            //Hit Ground check
+            if (this.birdParent.mtxLocal.translation.y < -1.4 && this.dead == false) {
+                this.dead = true;
             }
         }
     }

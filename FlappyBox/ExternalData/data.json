@@ -1,0 +1,7 @@
+{
+  "playerJumpSpeed": 3.2,   
+  "playerJumpAngle": 30,    
+  "playerFallRotSpeed": 2,  
+  "playerJumpRotSpeed": 3,   
+  "wallSpawnTime": 2500
+}

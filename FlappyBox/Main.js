@@ -12,12 +12,13 @@ var FlappyBox;
     let jumpAudio;
     let gameOverAudio;
     let viewport = new FlappyBox.ƒ.Viewport();
-    let wallSpawnTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, 2500, 0, spawnWall);
+    let wallSpawnTimer;
     let autoJumpTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, 700, 4, countdownAutoJump);
-    function init() {
+    async function init() {
         loadSounds();
         let canvas = document.querySelector("canvas");
         document.getElementById("SoundButton").addEventListener("click", changeSoundButton);
+        FlappyBox.data = await FlappyBox.loadJSON();
         game = new FlappyBox.ƒ.Node("Game");
         FlappyBox.player = new FlappyBox.Player("Player");
         FlappyBox.level = new FlappyBox.ƒ.Node("Level");
@@ -25,6 +26,7 @@ var FlappyBox;
         game.appendChild(floor);
         game.appendChild(FlappyBox.level);
         game.appendChild(FlappyBox.player);
+        wallSpawnTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, FlappyBox.data.wallSpawnTime, 0, spawnWall);
         countdownAutoJump();
         startCountDown();
         let cmpCamera = new FlappyBox.ƒ.ComponentCamera();

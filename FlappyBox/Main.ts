@@ -4,6 +4,7 @@ namespace FlappyBox {
 
   window.addEventListener("load", init);
 
+  export let data: ExternalData;
   export let level: ƒ.Node;
   export let player: Player;
   let game: ƒ.Node;
@@ -14,14 +15,16 @@ namespace FlappyBox {
   let jumpAudio: HTMLAudioElement;
   let gameOverAudio: HTMLAudioElement;
   let viewport: ƒ.Viewport = new ƒ.Viewport();
-  let wallSpawnTimer: ƒ.Timer = new ƒ.Timer(ƒ.Time.game, 2500, 0, spawnWall);
+  let wallSpawnTimer: ƒ.Timer;
   let autoJumpTimer: ƒ.Timer = new ƒ.Timer(ƒ.Time.game, 700, 4, countdownAutoJump);
 
 
-  function init(): void {
+  async function init(): Promise<void> {
     loadSounds();
     let canvas: HTMLCanvasElement = document.querySelector("canvas");
     document.getElementById("SoundButton").addEventListener("click", changeSoundButton);
+
+    data = await loadJSON();
 
     game = new ƒ.Node("Game");
     player = new Player("Player");
@@ -30,6 +33,8 @@ namespace FlappyBox {
     game.appendChild(floor);
     game.appendChild(level);
     game.appendChild(player);
+
+    wallSpawnTimer = new ƒ.Timer(ƒ.Time.game, data.wallSpawnTime, 0, spawnWall);
 
     countdownAutoJump();
     startCountDown();
