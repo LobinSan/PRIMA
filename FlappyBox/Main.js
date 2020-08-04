@@ -11,9 +11,9 @@ var FlappyBox;
     let gameOver = false;
     let jumpAudio;
     let gameOverAudio;
+    let viewport = new FlappyBox.ƒ.Viewport();
     let wallSpawnTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, 2500, 0, spawnWall);
     let autoJumpTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, 700, 4, countdownAutoJump);
-    FlappyBox.viewport = new FlappyBox.ƒ.Viewport();
     function init() {
         loadSounds();
         let canvas = document.querySelector("canvas");
@@ -31,16 +31,16 @@ var FlappyBox;
         cmpCamera.pivot.translateZ(5);
         cmpCamera.pivot.lookAt(FlappyBox.ƒ.Vector3.ZERO());
         cmpCamera.backgroundColor = FlappyBox.ƒ.Color.CSS("rgb(166, 232, 255)");
-        FlappyBox.viewport.initialize("Viewport", game, cmpCamera, canvas);
-        FlappyBox.viewport.draw();
-        FlappyBox.viewport.addEventListener("\u0192keydown" /* DOWN */, handleKeyboard);
-        FlappyBox.viewport.activateKeyboardEvent("\u0192keydown" /* DOWN */, true);
-        FlappyBox.viewport.setFocus(true);
+        viewport.initialize("Viewport", game, cmpCamera, canvas);
+        viewport.draw();
+        viewport.addEventListener("\u0192keydown" /* DOWN */, handleKeyboard);
+        viewport.activateKeyboardEvent("\u0192keydown" /* DOWN */, true);
+        viewport.setFocus(true);
         FlappyBox.ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
         FlappyBox.ƒ.Loop.start(FlappyBox.ƒ.LOOP_MODE.TIME_GAME, 60);
         function update(_event) {
             checkForGameOver();
-            FlappyBox.viewport.draw();
+            viewport.draw();
         }
     }
     function loadSounds() {

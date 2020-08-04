@@ -13,9 +13,9 @@ namespace FlappyBox {
   let gameOver: boolean = false;
   let jumpAudio: HTMLAudioElement;
   let gameOverAudio: HTMLAudioElement;
+  let viewport: ƒ.Viewport = new ƒ.Viewport();
   let wallSpawnTimer: ƒ.Timer = new ƒ.Timer(ƒ.Time.game, 2500, 0, spawnWall);
   let autoJumpTimer: ƒ.Timer = new ƒ.Timer(ƒ.Time.game, 700, 4, countdownAutoJump);
-  export let viewport: ƒ.Viewport = new ƒ.Viewport();
 
 
   function init(): void {
