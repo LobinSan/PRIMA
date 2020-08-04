@@ -9,14 +9,15 @@ namespace FlappyBox {
   export let player: Player;
   let game: ƒ.Node;
   let floor: Floor;
-  //let score: number = -2;
-  let musicOn: boolean = false;
+  let score: number = -2;
+  let musicOn: boolean = true;
   let gameOver: boolean = false;
   let jumpAudio: HTMLAudioElement;
   let gameOverAudio: HTMLAudioElement;
   let viewport: ƒ.Viewport = new ƒ.Viewport();
   let wallSpawnTimer: ƒ.Timer;
   let autoJumpTimer: ƒ.Timer = new ƒ.Timer(ƒ.Time.game, 700, 4, countdownAutoJump);
+  let soundVolume: number;
 
 
   async function init(): Promise<void> {
@@ -56,6 +57,7 @@ namespace FlappyBox {
 
     function update(_event: ƒ.Eventƒ): void {
       checkForGameOver();
+      updateSoundVolume();
       viewport.draw();
     }
   }
@@ -72,14 +74,25 @@ namespace FlappyBox {
 
   function changeSoundButton(): void {
     let soundButton = document.getElementById("SoundButton") as HTMLImageElement;
+    let volumeSlider = (<HTMLInputElement>document.getElementById("volumeSlider"));
+    let volumeText = document.getElementById("volumeValue");
 
     if (!musicOn) {
       soundButton.src = "Images/VolumeOn.png";
       musicOn = true;
+
+      //Set volume slider to initial value
+      volumeSlider.value = soundVolume.toString();
+      volumeText.textContent = soundVolume.toString();
     }
     else if (musicOn) {
       soundButton.src = "Images/VolumeOff.png";
       musicOn = false;
+
+      //Save current value of the volume slider and set it to 0 afterwards
+      soundVolume = parseInt(volumeSlider.value);
+      volumeSlider.value = "0";
+      volumeText.textContent = "0";
     }
   }
 
@@ -118,6 +131,14 @@ namespace FlappyBox {
     document.getElementById("PlayAgain").addEventListener("click", restartGame);
   }
 
+  function updateSoundVolume() {
+    let volumeSlider = (<HTMLInputElement>document.getElementById("volumeSlider"));
+    let volume: number = parseInt(volumeSlider.value) / 100;
+
+    gameOverAudio.volume = volume;
+    jumpAudio.volume = volume;
+  }
+
   function restartGame(): void {
     location.reload();
   }
@@ -132,15 +153,13 @@ namespace FlappyBox {
   function spawnWall(): void {
     let wall: Wall = new Wall();
     level.addChild(wall);
-    
+
 
     //Wall counting --> Score
-    /*
     score++;
     let scoreElem: HTMLElement = document.querySelector("h1#Score");
     if (score >= 0)
       scoreElem.textContent = score.toString();
-    */
   }
 
   function startCountDown(): void {

@@ -3,6 +3,120 @@ body{
   overflow: hidden;
   margin-right: 20px;
 }
+
+h1 {
+  color: rgb(36, 36, 36);
+  font-family: Impact;
+  text-align: center;
+  font-size: 40px;
+}
+
+#HeadlineContainer{
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+#Headline{
+  width: 1000px;
+  height: 100%;
+  margin: auto;
+}
+
+#SBContainer{
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 100px;
+}
+
+#SoundButton{
+  position: relative;
+  width: 50px;
+  top: 25px;
+  left: 25px;
+  transition: width 0.1s, left 0.1s, top 0.1s;
+}
+
+#SoundButton:hover {
+  width: 60px;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+p {
+  color: rgb(36, 36, 36);
+  font-family: Impact;
+  font-size: 15px;
+  position: relative;
+  float: left;
+  top: 41px;
+  margin-top: 0;
+}
+
+#volumeSlider{
+  position: relative;
+  -webkit-appearance: none;
+  width: 10%;
+  height: 5px;
+  background: #d3d3d3;
+  outline: none;
+  float: left;
+  top: 46px;
+  opacity: 70%;
+  left: 10px;
+  transition: opacity 0.1s;
+}
+
+#volumeSlider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ffbf0e;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+#volumeSlider:hover{
+  opacity: 100%;
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ffbf0e;
+  cursor: pointer;
+}
+
+#volumeValue{
+  color: rgb(36, 36, 36);
+  font-family: Impact;
+  font-size: 15px;
+  position: relative;
+  float: left;
+  left: 15px;
+  top: 41px;;
+  margin-top: 0;
+}
+
+#Title{
+  position: absolute;
+  top: 5px;
+  left: 45%;
+  text-align: center;
+}
+
+
+
+
+#GameContainer{
+  position: relative;
+  width: 100%;
+  height: 800px;
+}
+
 canvas {
   position: absolute;
   padding-left: 0;
@@ -32,27 +146,6 @@ canvas {
   transition: opacity 1s;
 }
 
-h1 {
-  color: rgb(36, 36, 36);
-  font-family: Impact;
-  text-align: center;
-  font-size: 40px;
-}
-
-#SoundButton{
-  position: absolute;
-  width: 50px;
-  top: 50px;
-  left: 50px;
-  transition: width 0.1s, left 0.1s, top 0.1s;
-}
-#SoundButton:hover {
-  width: 60px;
-  left: 45px;
-  top: 45px;
-  cursor: pointer;
-}
-
 #Countdown {
   color: white;
   font-size: 120px;
@@ -69,7 +162,7 @@ h1 {
   font-size: 55px;
   display: inline-block;
   position: absolute;
-  top: 12%;
+  top: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 3px 3px 0px rgb(0, 0, 0);

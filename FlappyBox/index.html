@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +17,32 @@
   <script src="Main.js"></script>
 
 </head>
+
 <body>
-  <h1>
+
+  <div id="HeadlineContainer">
+    <div id="Headline">
+      <div id="SBContainer">
+        <img id="SoundButton" src="Images/VolumeOn.png" />
+      </div>
+      <p>Volume</p>
+      <input type="range" min="0" max="100" value="100" id="volumeSlider"
+        oninput="document.getElementById('volumeValue').innerHTML = this.value">
+      <span id="volumeValue">100</span>
+    </div>
+  </div>
+  <h1 id="Title">
     Flappy Box
   </h1>
-  <div id="SBContainer">
-    <img id="SoundButton" src="Images/VolumeOff.png" />
+
+  <div id="GameContainer">
+    <div id="EndScreenBrightness"></div>
+    <h1 id="YourScore">Your Score:</h1>
+    <h1 id="Score">0</h1>
+    <h1 id="PlayAgain">Play Again</h1>
+    <canvas id="canvas"></canvas>
+    <h1 id="Countdown">3</h1>
   </div>
-  <div id ="EndScreenBrightness"></div>
-  <h1 id="YourScore">Your Score:</h1>
-  <h1 id="Score">0</h1>
-  <h1 id="PlayAgain">Play Again</h1>
-  <canvas id="canvas"></canvas>
-  <h1 id="Countdown">3</h1>
 </body>
+
 </html>

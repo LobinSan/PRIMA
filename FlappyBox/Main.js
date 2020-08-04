@@ -6,14 +6,15 @@ var FlappyBox;
     window.addEventListener("load", init);
     let game;
     let floor;
-    //let score: number = -2;
-    let musicOn = false;
+    let score = -2;
+    let musicOn = true;
     let gameOver = false;
     let jumpAudio;
     let gameOverAudio;
     let viewport = new FlappyBox.ƒ.Viewport();
     let wallSpawnTimer;
     let autoJumpTimer = new FlappyBox.ƒ.Timer(FlappyBox.ƒ.Time.game, 700, 4, countdownAutoJump);
+    let soundVolume;
     async function init() {
         loadSounds();
         let canvas = document.querySelector("canvas");
@@ -42,6 +43,7 @@ var FlappyBox;
         FlappyBox.ƒ.Loop.start(FlappyBox.ƒ.LOOP_MODE.TIME_GAME, 60);
         function update(_event) {
             checkForGameOver();
+            updateSoundVolume();
             viewport.draw();
         }
     }
@@ -55,13 +57,22 @@ var FlappyBox;
     }
     function changeSoundButton() {
         let soundButton = document.getElementById("SoundButton");
+        let volumeSlider = document.getElementById("volumeSlider");
+        let volumeText = document.getElementById("volumeValue");
         if (!musicOn) {
             soundButton.src = "Images/VolumeOn.png";
             musicOn = true;
+            //Set volume slider to initial value
+            volumeSlider.value = soundVolume.toString();
+            volumeText.textContent = soundVolume.toString();
         }
         else if (musicOn) {
             soundButton.src = "Images/VolumeOff.png";
             musicOn = false;
+            //Save current value of the volume slider and set it to 0 afterwards
+            soundVolume = parseInt(volumeSlider.value);
+            volumeSlider.value = "0";
+            volumeText.textContent = "0";
         }
     }
     function countdownAutoJump() {
@@ -94,6 +105,12 @@ var FlappyBox;
         document.getElementById("PlayAgain").style.left = "50%";
         document.getElementById("PlayAgain").addEventListener("click", restartGame);
     }
+    function updateSoundVolume() {
+        let volumeSlider = document.getElementById("volumeSlider");
+        let volume = parseInt(volumeSlider.value) / 100;
+        gameOverAudio.volume = volume;
+        jumpAudio.volume = volume;
+    }
     function restartGame() {
         location.reload();
     }
@@ -107,12 +124,10 @@ var FlappyBox;
         let wall = new FlappyBox.Wall();
         FlappyBox.level.addChild(wall);
         //Wall counting --> Score
-        /*
         score++;
-        let scoreElem: HTMLElement = document.querySelector("h1#Score");
+        let scoreElem = document.querySelector("h1#Score");
         if (score >= 0)
-          scoreElem.textContent = score.toString();
-        */
+            scoreElem.textContent = score.toString();
     }
     function startCountDown() {
         let countDown = new FlappyBox.ƒ.Time();
