@@ -3,7 +3,8 @@ Repository for the module "Prototyping interactive media-applications and games"
 
 [Pages-Version](https://lobinsan.github.io/PRIMA/)
 
-- [Flappy Box (Final Handin)](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
+- [Start Flappy Box](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
+- [Flappy Box (Code)](https://github.com/LobinSan/PRIMA/tree/master/FlappyBox)
 
 
 ## Checkliste für Leistungsnachweis
@@ -14,8 +15,8 @@ Repository for the module "Prototyping interactive media-applications and games"
 |    | Titel                 | Flappy Box
 |    | Name                  | Robin Pittelkow
 |    | Matrikelnummer        | 257730
-|  1 | Nutzerinteraktion     | Der Nutzer kann mit der Applikation interagieren. Mit welchen Mitteln und welchen Aktionen werden welche Reaktionen ausgelöst?                                                                                                                                                 |
-|  2 | Objektinteraktion     | Mit Hilfe von Kollisionsprüfung interagieren Objekte miteinander. Wann passiert dabei wie was?                                                                                                                                                                                 |
+|  1 | Nutzerinteraktion     | Der Nutzer kann mit einem einzigen Tastendruck das Spiel steuern. Wie beim originalen Flappy Bird ist lediglich das Springen des Characters zu steuern, da das speil dem Endlos-Spiel-Prinzip folgt. Mit der Leertaste, "W" oder "Pfeiltaste nach oben" kann dieser Sprung gesteuert werden. Es soll versucht werden, den zu steuernden Character in der Luft zu halten und währenddessen durch Hindernisse hindurch zu fliegen, ohne diese zu berühren. Zudem kann der Nutzer mit der Maus Einstellungen vornehmen oder das Spiel neu starten.                                                                                                                            |
+|  2 | Objektinteraktion     | Alle Versuchungen Kollisionen zu implementieren waren Erfolglos, da dauerhaft eine Kollision erkannt wird.                                                                                                                                                                               |
 |  3 | Objektanzahl variabel | Eine variable Anzahl von Objekten wird zur Laufzeit generiert. Welche sind dies und wann und wie geschieht die Erzeugung?                                                                                                                                                      |
 |  4 | Szenenhierarchie      | Die Szenenhierarchie ist sinnvoll aufgebaut. Wer ist wessen Parent, wie sind Elemente in anderen gruppiert und warum?                                                                                                                                                          |
 |  5 | Sound                 | Sounds sind eingebunden und unterstützen oder ermöglichen die Wahrnehmung der Aktionen. Welche Ereignisse werden durch Geräusche akustisch unterstützt, und durch welche Geräuschkulisse oder Musik die Atmosphäre?                                                            |
