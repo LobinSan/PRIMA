@@ -3,8 +3,7 @@ Repository for the module "Prototyping interactive media-applications and games"
 
 [Pages-Version](https://lobinsan.github.io/PRIMA/)
 
-- [Flappy Box OLD](https://jirkadelloro.github.io/Prima/W19/L06_PongFinal/Main.html)
-- [Flappy Box](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
+- [Flappy Box (Final Handin)](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
 
 
 ## Checkliste für Leistungsnachweis
