@@ -3,6 +3,8 @@ Repository for the module "Prototyping interactive media-applications and games"
 
 [Pages-Version](https://lobinsan.github.io/PRIMA/)
 
+Final handin:
+
 - [Start Flappy Box](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
 - [Flappy Box (Code)](https://github.com/LobinSan/PRIMA/tree/master/FlappyBox)
 
