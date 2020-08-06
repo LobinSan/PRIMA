@@ -8,7 +8,7 @@ Final handin:
 - [Start Flappy Box](https://lobinsan.github.io/PRIMA/FlappyBox/index.html)
 - [Flappy Box (Code)](https://github.com/LobinSan/PRIMA/tree/master/FlappyBox)
 - [Designdokument](https://github.com/LobinSan/PRIMA/blob/master/FlappyBox/DesigndukumentFlappyBox.pdf)
-- [Gepacktes Archiv](https://github.com/LobinSan/PRIMA/blob/master/FlappyBox/FlappyBoxPackedFolder.zip)
+- [Gepacktes Archiv Download](https://github.com/LobinSan/PRIMA/blob/master/FlappyBox/FlappyBoxPackedFolder.zip?raw=true)
 
 
 ## Checkliste für Leistungsnachweis
