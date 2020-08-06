@@ -30,7 +30,7 @@ namespace FlappyBox {
 
           let cmpMesh: ƒ.ComponentMesh = new ƒ.ComponentMesh(mesh);
           segment.addComponent(cmpMesh);
-          cmpMesh.pivot.scale(ƒ.Vector3.ONE(0.95));
+          //cmpMesh.pivot.scale(ƒ.Vector3.ONE(0.95));
 
           let cmpMaterial: ƒ.ComponentMaterial = new ƒ.ComponentMaterial(wallMaterial);
           segment.addComponent(cmpMaterial);
